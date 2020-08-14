@@ -20,10 +20,10 @@ class testTableController extends Controller {
     public function search( Request $request ) {
         $search = $request->name;
         $values = testTableModel::
-        where( 'name', 'ilike', '%' . $search . '%' )
-        ->orWhere( 'address', 'ilike', '%' . $search . '%' )
-        ->orWhere( 'postCode', 'ilike', '%' . $search . '%' )
-        ->orWhere( 'cityName', 'ilike', '%' . $search . '%' )
+        where( 'name', 'like', '%' . $search . '%' )
+        ->orWhere( 'address', 'like', '%' . $search . '%' )
+        ->orWhere( 'postCode', 'like', '%' . $search . '%' )
+        ->orWhere( 'cityName', 'like', '%' . $search . '%' )
         ->paginate( 10 )->appends( 'name', $search );
         return view( 'home' )->with( 'values', $values );
     }
@@ -39,10 +39,7 @@ class testTableController extends Controller {
         $item->conNumber = $request->conNumber;
         $item->save();
 
-        $encoded_address = urlencode($request->address);
-        
-        echo $encoded_address;
-        // return redirect()->route( 'home' );
+        return redirect()->route( 'home' );
     }
 
     public function delete($id){

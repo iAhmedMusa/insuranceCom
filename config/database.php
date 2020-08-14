@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
+
 return [
 
     /*
@@ -14,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'pgsql_production'),
+    'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
     |--------------------------------------------------------------------------
@@ -75,21 +76,6 @@ return [
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
-        ],
-
-        'pgsql_production' => [
-            'driver' => 'pgsql',
-            'url' => ('postgres://oquyyqyefbcwrw:6904488c12c3324f418f62dffc26288c10f30696b296aba567b6c9bebe8eb259@ec2-54-197-254-117.compute-1.amazonaws.com:5432/d9i28ibg287f5u'),
-            'host' => ('ec2-54-197-254-117.compute-1.amazonaws.com'),
-            'port' => ('5432'),
-            'database' => ('d9i28ibg287f5u'),
-            'username' => ('oquyyqyefbcwrw'),
-            'password' => env('6904488c12c3324f418f62dffc26288c10f30696b296aba567b6c9bebe8eb259'),
-            'charset' => 'utf8',
-            'prefix' => 'test_',
-            'prefix_indexes' => true,
-            'schema' => 'public',
-            'sslmode' => 'require',
         ],
 
         'sqlsrv' => [
